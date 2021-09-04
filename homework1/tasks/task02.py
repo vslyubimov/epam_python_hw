@@ -9,10 +9,3 @@ def check_fibonacci(data: Sequence[int]) -> bool:
             return False
     return True
 
-"""
-пока не разобрался почему, но если мы имеем:
-        else:
-            return False
-    return True
-то тесты от check2 и check3 не работают. А так работает :/
-"""
