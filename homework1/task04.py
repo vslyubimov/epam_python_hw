@@ -1,11 +1,11 @@
+from itertools import product
 from typing import List
 
 
-def check_sum_of_four(a: List[int], b: List[int], c: List[int], d: List[int]) -> int:
+def check_sum_of_four(a: List[int], b: List[int],
+                      c: List[int], d: List[int]) -> int:
     counter = 0
-    for i in range(0, len(a)):
-        if a[i] + b[i] + c[i] + d[i] == 0:
+    for item in product(a, b, c, d):
+        if sum(item) == 0:
             counter += 1
-        else:
-            continue
     return counter
