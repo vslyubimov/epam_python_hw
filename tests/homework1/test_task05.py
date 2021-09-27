@@ -23,3 +23,9 @@ def test_task_05_4():
     nums = [1, 4, 7, -10, 6, 1, 1]
     k = 3
     assert find_maximal_subarray_sum(nums, k) == 12
+
+
+def test_task_05_5():
+    nums = [1, 3, -1, -3, 5, -3, 6, 7]
+    k = 3
+    assert find_maximal_subarray_sum(nums, k) == 13
