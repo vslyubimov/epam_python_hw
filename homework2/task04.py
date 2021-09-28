@@ -18,11 +18,11 @@ from typing import Callable
 def cache(func: Callable) -> Callable:
     cache_dict = {}
 
-    def a(*args, **kwargs):
-        if not cache_dict.get(args):
-            g = func(*args, **kwargs)
-            cache_dict[args] = g
-            return g
+    def temp_func(*args, **kwargs):
+        if args not in cache_dict:
+            values_to_cache = func(*args, **kwargs)
+            cache_dict[args] = values_to_cache
+            return values_to_cache
         else:
             return cache_dict[args]
-    return a
+    return temp_func

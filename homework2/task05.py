@@ -13,13 +13,10 @@ assert = custom_range(string.ascii_lowercase, 'p', 'g', -2) ==
 """
 
 
-def custom_range(data, *args):
-
-    if len(args) == 1:
-        return list(data[:data.find(args[0])])
-
-    elif len(args) == 2:
-        return list(data[data.find(args[0]):data.find(args[1])])
-
-    elif len(args) == 3:
-        return list(data[data.find(args[0]):data.find(args[1]):(args[2])])
+def custom_range(data, first=None, second=None, step=None):
+    if first and not second and not step:
+        return list(data[:data.find(first)])
+    elif first and second and not step:
+        return list(data[data.find(first):data.find(second)])
+    elif first and second and step:
+        return list(data[data.find(first):data.find(second):step])
