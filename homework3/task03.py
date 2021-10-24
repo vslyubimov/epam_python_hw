@@ -56,4 +56,3 @@ sample_data = [
 
 # There are multiple bugs in this code.
 # Find them all and write tests for faulty cases.
-

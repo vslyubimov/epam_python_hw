@@ -10,7 +10,8 @@ Would give out cached value up to times number only. Example:
 
 @cache(times=2)
 def f():
-    return input('? ')   # careful with input() in python2, use raw_input() instead
+    return input('? ')   # careful with input() in python2,
+    use raw_input() instead
 f()
 ? 1
 '1'
