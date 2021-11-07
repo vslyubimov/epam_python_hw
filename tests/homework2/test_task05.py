@@ -4,7 +4,7 @@ from homework2.task05 import custom_range
 
 
 def test_custom_range_to_g():
-    assert custom_range(string.ascii_lowercase, 'g') == \
+    assert custom_range(string.ascii_lowercase, end='g') == \
            ['a', 'b', 'c', 'd', 'e', 'f']
 
 

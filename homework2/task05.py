@@ -13,10 +13,9 @@ assert = custom_range(string.ascii_lowercase, 'p', 'g', -2) ==
 """
 
 
-def custom_range(data, first=None, second=None, step=None):
-    if first and not second and not step:
-        return list(data[:data.find(first)])
-    elif first and second and not step:
-        return list(data[data.find(first):data.find(second)])
-    elif first and second and step:
-        return list(data[data.find(first):data.find(second):step])
+def custom_range(data, start=None, end=None, step=None):
+    if not start:
+        start = data[0]
+    start_index = data.index(start)
+    end_index = data.index(end)
+    return list(data[start_index:end_index:step])
