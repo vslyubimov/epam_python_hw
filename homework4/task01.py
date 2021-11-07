@@ -32,10 +32,9 @@ You will learn:
 
 
 def read_magic_number(path: str) -> bool:
-    with open(path, 'r') as file:
-        line = file.readline()
-        if line.replace('.', '', 1).isdigit() \
-                and not 1.0 <= float(line) < 3.0:
-            return True
-        else:
-            return False
+    try:
+        with open(path, 'r') as file:
+            line = file.readline()
+        return 1 <= float(line) < 3
+    except BaseException:
+        raise ValueError

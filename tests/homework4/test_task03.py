@@ -1,19 +1,14 @@
-import sys
+import pytest
 
 from homework4.task03 import my_precious_logger
 
 
-def test_basic_functional():
-    assert my_precious_logger('hey') == sys.stderr.write("hey")
-    # .readouterr()
-
-
-def test_myoutput(capsys):  # or use "capfd" for fd-level
-    print("hello")
-    sys.stderr.write("world\n")
-    captured = capsys.readouterr()
-    assert captured.out == "hello\n"
-    assert captured.err == "world\n"
-    print("next")
-    captured = capsys.readouterr()
-    assert captured.out == "next\n"
+@pytest.mark.parametrize(
+    ("stderr_input", "stdout_input"),
+    [("error", "all right")])
+def test_logger(capsys, stderr_input, stdout_input):
+    my_precious_logger(stderr_input)
+    my_precious_logger(stdout_input)
+    caught = capsys.readouterr()
+    assert caught.err == stderr_input
+    assert caught.out == stdout_input

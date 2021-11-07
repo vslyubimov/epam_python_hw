@@ -1,40 +1,31 @@
 import os
-from random import randrange, uniform
+
+import pytest
 
 from homework4.task01 import read_magic_number
 
 
-def test_reading_file():
-    filename = "test_read_magic_number_file.txt"
-    repository = 'homework4'
-    abs_path = os.path.abspath(os.path.join(__file__, "../../.."))
-    file_path = os.path.join(abs_path, repository, filename)
-    file = open(file_path, "w")
-    file.write("5")
-    file.close()
-    assert read_magic_number(file_path)
-    os.remove(file_path)
+@pytest.mark.parametrize(("filename", "file_text", "result_bool"),
+                         [("test_read_magic_number_file.txt", "2", True)])
+def test_magic_number_true(filename, file_text, result_bool):
+    try:
+        with open(filename, "w") as f:
+            f.write(file_text)
+        assert result_bool == read_magic_number(f.name)
+    except Exception as e:
+        raise e
+    finally:
+        os.unlink(f.name)
 
 
-def test_negative_random_int_in_interval_1_3():
-    filename = "test_read_magic_number_file.txt"
-    repository = 'homework4'
-    abs_path = os.path.abspath(os.path.join(__file__, "../../.."))
-    file_path = os.path.join(abs_path, repository, filename)
-    file = open(file_path, "w")
-    file.write(str(randrange(1, 3)))
-    file.close()
-    assert not read_magic_number(file_path)
-    os.remove(file_path)
-
-
-def test_negative_random_float_in_interval_1_3():
-    filename = "test_read_magic_number_file.txt"
-    repository = 'homework4'
-    abs_path = os.path.abspath(os.path.join(__file__, "../../.."))
-    file_path = os.path.join(abs_path, repository, filename)
-    file = open(file_path, "w")
-    file.write(str(uniform(1, 3)))
-    file.close()
-    assert not read_magic_number(file_path)
-    os.remove(file_path)
+@pytest.mark.parametrize(("filename", "file_text", "result_bool"),
+                         [("test_read_magic_number_file.txt", "5", False)])
+def test_magic_number_false(filename, file_text, result_bool):
+    try:
+        with open(filename, "w") as f:
+            f.write(file_text)
+        assert result_bool == read_magic_number(f.name)
+    except Exception as e:
+        raise e
+    finally:
+        os.unlink(f.name)

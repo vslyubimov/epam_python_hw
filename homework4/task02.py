@@ -27,13 +27,15 @@ You will learn:
 * https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen
 """
 
-from io import TextIOWrapper
-from urllib.request import urlopen
+import requests
+from requests import RequestException
+
+# i misunderstood that we can use any lib for this task
 
 
 def count_dots_on_i(url: str) -> int:
-    counter = 0
-    for element in TextIOWrapper(urlopen(url).read().decode()):
-        if element == 'i':
-            counter += 1
-    return counter
+    try:
+        r = requests.get(url)
+        return r.text.count("i")
+    except RequestException:
+        raise ValueError(f"Unreachable {url}")
