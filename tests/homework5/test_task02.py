@@ -1,28 +1,11 @@
-# я пока не разобрался, как корректно тестировать функцию с декоратором.
+from homework5.task02 import print_result
 
-# import unittest
-#
-# from homework5.task02 import custom_sum, print_result
-#
-#
-# class TestTask02Func(unittest.TestCase):
-#
-#     def setUp(self):
-#         self.custom_sum = custom_sum
-#
-#     # custom_sum([1, 2, 3], [4, 5])
-#     # custom_sum(1, 2, 3, 4)
-#     def tests(self):
-#         assert custom_sum.__doc__ ==
-#         'This function can sum any objects which have __add___'
-#         assert custom_sum.__name__ == 'custom_sum'
-#         assert custom_sum.__original_func ==
-#         '<function custom_sum at <some_id>>'
 
-# the result returns without printing
-# print(custom_sum.__doc__)
-# 'This function can sum any objects which have __add___'
-# print(custom_sum.__name__)
-# 'custom_sum'
-# print(custom_sum.__original_func)
-# <function custom_sum at <some_id>>
+def test_custom_wrap_decorator():
+    @print_result
+    def function_name(a, b):
+        """test_docstring"""
+        return a * b
+
+    assert str(function_name.__doc__) == "test_docstring"
+    assert str(function_name.__name__) == "function_name"

@@ -20,10 +20,21 @@ print(custom_sum.__original_func)  # <function custom_sum at <some_id>>
 import functools
 
 
-def print_result(func):
-    func.__original_func = func
+def custom_update(wrapper, wrapped):
+    attr_list = ("__name__", "__doc__")
+    for attr in attr_list:
+        temp_v = getattr(wrapped, attr)
+        setattr(wrapper, attr, temp_v)
+    wrapper.__original_func = wrapped
+    return wrapper
 
-    @functools.wraps(func)
+
+def custom_wrap(func):
+    return functools.partial(custom_update, wrapped=func)
+
+
+def print_result(func):
+    @custom_wrap(func)
     def wrapper(*args, **kwargs):
         """Function-wrapper which print result of an original function"""
         result = func(*args, **kwargs)
@@ -39,7 +50,6 @@ def custom_sum(*args):
     return functools.reduce(lambda x, y: x + y, args)
 
 
-# do test with code below
 if __name__ == "__main__":
     custom_sum([1, 2, 3], [4, 5])
     custom_sum(1, 2, 3, 4)
