@@ -19,5 +19,3 @@ jobs:
           pip install requests
           ls -la
           flake8 .
-          isort --check .
-          py.test tests
