@@ -43,5 +43,7 @@ def cache(times):
                 cache_dict[args] = values_to_cache
                 counter = times - 1
                 return values_to_cache
+
         return wrapped_func
+
     return wrapped_cache

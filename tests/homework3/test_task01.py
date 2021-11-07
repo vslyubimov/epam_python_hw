@@ -1,14 +1,18 @@
 from homework3.task01 import cache
 
+counter = 0
 
-def check_x3_times_return():
-    @cache(times=3)
-    def f():
-        return input('!! ')
 
-    # assert f(1)
-    # assert f()
-    # assert f()
+def test_cache_decorator():
+    @cache(times=2)
+    def f(a, b):
+        global counter
+        counter += 1
+        return a + b
 
-# check_x3_times_return()
-# !!! забыл сделать тест, доделаю познее
+    assert f(1, 2) == 3
+    assert counter == 1
+    assert f(1, 2) == 3
+    assert counter == 1
+    assert f(1, 2) == 3
+    assert counter == 2

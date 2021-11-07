@@ -39,9 +39,9 @@ def timing():
     return lambda x: print("[{:.2f}s] {}".format(time.time() - start_time, x))
 
 
-def pool_calculation():
-    loop_range = range(0, 500)
-    with Pool(30) as pool:
+def pool_calculation(last_value, processors):
+    loop_range = range(0, last_value)
+    with Pool(processors) as pool:
         return sum(pool.map(slow_calculate, loop_range))
 
 
