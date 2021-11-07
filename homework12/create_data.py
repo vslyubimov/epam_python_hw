@@ -3,7 +3,6 @@ from datetime import datetime, timedelta
 from homework12.base import session
 from homework12.create_table import Homework, HomeworkResult, Student, Teacher
 
-
 session.query(Student).delete()
 session.query(Teacher).delete()
 session.query(Homework).delete()
