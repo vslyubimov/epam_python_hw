@@ -1,2 +1,2 @@
 # epam_python
-epam python training hw
+epam python training homeworks repository
