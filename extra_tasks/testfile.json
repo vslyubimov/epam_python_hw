@@ -1,0 +1,54 @@
+{
+  "result": 
+    [
+      {
+        "first_name": "Vasia",
+        "last_name": "Pupkin",
+        "date_of_db": "01.12.2021",
+        "middle_name": "Gorichev",
+        "link": "http://localhost:8080/vasia"
+      },
+      {
+        "first_name": "Misha",
+        "last_name": "Mishkin",
+        "date_of_db": "01.12.1999",
+        "middle_name": "Junior",
+        "link": "http://localhost:8080/mishka",
+        "description": "criminal",
+        "nickname": "krisa"
+      },
+      {
+        "last_name": "Jiber",
+        "date_of_db": "03.10.2020",
+        "middle_name": "Cicle",
+        "description": "idiot",
+        "nickname": "jiber_jida"
+      },
+      {
+        "first_name": "Nikolai",
+        "middle_name": "Michailovich",
+        "link": "http://localhost:8080/kolyan",
+        "nickname": "krisa",
+        "id": 19090343423
+      },
+      {
+        "first_name": "Olga",
+        "last_name": "Pugacheva",
+        "date_of_db": "10.01.1876",
+        "link": "http://localhost:8080/oldpeople/olga_pu",
+        "description": "scientist",
+        "nickname": "olusha",
+        "id": 98984232001
+      },
+      {
+        "first_name": "Ilon",
+        "last_name": "Mask",
+        "date_of_db": "23.12.1978",
+        "middle_name": "Senior",
+        "link": "http://localhost:8080/krasavchik",
+        "description": "bussiness",
+        "nickname": "ilonmask",
+        "id": 98984232091
+      }
+    ]
+}
